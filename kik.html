@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #gra DIV{
+            width: 200px;
+            height:200px;
+            border:solid 1px;
+            float:left;
+        }
+        #gra div:nth-child(3n+1){
+            clear:both;
+        }
+        .o{
+            background-image: url("o.png");
+            background-size: 200px 200px;
+        }
+        .x{
+            background-image: url("x.jpg");
+            background-size: 200px 200px;
+        }
+    
+    </style>
+    <script>
+        function wygrana(sign){
+            var els=document.querySelectorAll("#gra div")
+            if(els[0].className==sign&&els[1].className==sign&&els[2].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[3].className==sign&&els[4].className==sign&&els[5].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[6].className==sign&&els[7].className==sign&&els[8].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[0].className==sign&&els[3].className==sign&&els[6].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[1].className==sign&&els[4].className==sign&&els[7].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[2].className==sign&&els[5].className==sign&&els[8].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                 },1);
+                
+            }
+            if(els[0].className==sign&&els[4].className==sign&&els[8].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+            if(els[2].className==sign&&els[4].className==sign&&els[6].className==sign){
+                setTimeout(function(){
+                window.alert("wygraly "+sign);
+                window.location.reload();
+                },1);
+            }
+        }
+        var i;
+        i=0
+        function znak(d){
+            if(d.className=="")
+               if(i%2==0){
+                  d.className="o";
+                    i=i+1;
+                } else {
+                d.className="x";
+                 i=i+1;
+                 }
+                 wygrana("o");
+                 wygrana("x");
+                 if(i==9){
+                     setTimeout("window.alert('REMIS')",0);
+                 }
+            }
+        
+    </script>
+</head>
+<body>
+    <h1>Zagrajmy w kołko i krzyk</h1>
+    <div id="gra">
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+        <div onclick="znak(this)"></div>
+    </div>
+</body>
+</html>
